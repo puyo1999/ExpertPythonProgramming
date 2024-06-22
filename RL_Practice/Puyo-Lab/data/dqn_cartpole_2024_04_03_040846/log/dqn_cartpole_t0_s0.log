@@ -1,0 +1,207 @@
+[2024-04-03 04:08:47,138 PID:22724 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000, 'max_t': None, 'name': 'CartPole-v0'}
+- eval_frequency = 500
+- log_frequency = 500
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = CartPole-v0
+- max_t = 200
+- max_frame = 10000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <puyo_lab.env.base.Clock object at 0x000001E453A625B0>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<CartPoleEnv<CartPole-v0>>>>
+- observation_space = Box(4,)
+- action_space = Discrete(2)
+- observable_dim = {'state': 4}
+- action_dim = 2
+- is_discrete = True
+[2024-04-03 04:08:47,232 PID:22724 INFO base.py end_init_nets] Initialized algorithm models for lab_mode: dev
+[2024-04-03 04:08:47,244 PID:22724 INFO base.py __init__] DQN:
+- agent = <puyo_lab.agent.Agent object at 0x000001E453A7BEE0>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x000001E443841700>
+- explore_var_spec = {'end_step': 1000,
+ 'end_val': 0.1,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 8
+- training_iter = 4
+- training_frequency = 4
+- to_train = 0
+- explore_var_scheduler = <puyo_lab.agent.algorithm.policy_util.VarScheduler object at 0x000001E453A98250>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=4, out_features=64, bias=True)
+    (1): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=64, out_features=2, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=4, out_features=64, bias=True)
+    (1): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=64, out_features=2, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: False
+    initial_lr: 0.02
+    lr: 0.02
+    maximize: False
+    weight_decay: 0
+)
+- lr_scheduler = <torch.optim.lr_scheduler.StepLR object at 0x000001E453AC9D90>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=4, out_features=64, bias=True)
+    (1): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=64, out_features=2, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=4, out_features=64, bias=True)
+    (1): SELU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=64, out_features=2, bias=True)
+  )
+  (loss_fn): MSELoss()
+)
+[2024-04-03 04:08:47,269 PID:22724 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 500,
+ 'experiment': 0,
+ 'experiment_ts': '2024_04_03_040846',
+ 'git_sha': '333d5ede9d1bc23d1707dfb146b6a43f80b0b7b6',
+ 'graph_prepath': 'data/dqn_cartpole_2024_04_03_040846/graph/dqn_cartpole_t0_s0',
+ 'info_prepath': 'data/dqn_cartpole_2024_04_03_040846/info/dqn_cartpole_t0_s0',
+ 'log_frequency': 500,
+ 'log_prepath': 'data/dqn_cartpole_2024_04_03_040846/log/dqn_cartpole_t0_s0',
+ 'max_session': 1,
+ 'max_trial': 2,
+ 'model_prepath': 'data/dqn_cartpole_2024_04_03_040846/model/dqn_cartpole_t0_s0',
+ 'prepath': 'data/dqn_cartpole_2024_04_03_040846/dqn_cartpole_t0_s0',
+ 'random_seed': 1712084926,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'session': 0,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 1000,
+                                    'end_val': 0.1,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DQN',
+               'training_batch_iter': 8,
+               'training_frequency': 4,
+               'training_iter': 4,
+               'training_start_step': 32},
+ 'memory': {'batch_size': 32,
+            'max_size': 10000,
+            'name': 'Replay',
+            'use_cer': True},
+ 'name': 'DQN',
+ 'net': {'clip_grad_val': 0.5,
+         'gpu': False,
+         'hid_layers': [64],
+         'hid_layers_activation': 'selu',
+         'loss_spec': {'name': 'MSELoss'},
+         'lr_scheduler_spec': {'gamma': 0.9,
+                               'name': 'StepLR',
+                               'step_size': 1000},
+         'optim_spec': {'lr': 0.02, 'name': 'Adam'},
+         'polyak_coef': 0.1,
+         'type': 'MLPNet',
+         'update_frequency': 32,
+         'update_type': 'polyak'}}
+- name = DQN
+- body = body: {
+  "agent": "<puyo_lab.agent.Agent object at 0x000001E453A7BEE0>",
+  "env": "<puyo_lab.env.openai.OpenAIEnv object at 0x000001E453A62550>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 1.0,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(4,)",
+  "action_space": "Discrete(2)",
+  "observable_dim": {
+    "state": 4
+  },
+  "state_dim": 4,
+  "action_dim": 2,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'puyo_lab.lib.distribution.Argmax'>",
+  "memory": "<puyo_lab.agent.memory.replay.Replay object at 0x000001E453A98040>"
+}
+- algorithm = <puyo_lab.agent.algorithm.dqn.DQN object at 0x000001E453A98220>
+[2024-04-03 04:08:47,293 PID:22724 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 500,
+ 'experiment': 0,
+ 'experiment_ts': '2024_04_03_040846',
+ 'git_sha': '333d5ede9d1bc23d1707dfb146b6a43f80b0b7b6',
+ 'graph_prepath': 'data/dqn_cartpole_2024_04_03_040846/graph/dqn_cartpole_t0_s0',
+ 'info_prepath': 'data/dqn_cartpole_2024_04_03_040846/info/dqn_cartpole_t0_s0',
+ 'log_frequency': 500,
+ 'log_prepath': 'data/dqn_cartpole_2024_04_03_040846/log/dqn_cartpole_t0_s0',
+ 'max_session': 1,
+ 'max_trial': 2,
+ 'model_prepath': 'data/dqn_cartpole_2024_04_03_040846/model/dqn_cartpole_t0_s0',
+ 'prepath': 'data/dqn_cartpole_2024_04_03_040846/dqn_cartpole_t0_s0',
+ 'random_seed': 1712084926,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'session': 0,
+ 'trial': 0}
+- index = 0
+- agent = <puyo_lab.agent.Agent object at 0x000001E453A7BEE0>
+- env = <puyo_lab.env.openai.OpenAIEnv object at 0x000001E453A62550>
+- eval_env = <puyo_lab.env.openai.OpenAIEnv object at 0x000001E453A62550>
+[2024-04-03 04:08:47,303 PID:22724 INFO logger.py info] Running RL loop for trial 0 session 0
