@@ -1,0 +1,119 @@
+{
+  "agent": [
+    {
+      "name": "A2C",
+      "algorithm": {
+        "name": "ActorCritic",
+        "action_pdtype": "default",
+        "action_policy": "default",
+        "explore_var_spec": null,
+        "gamma": 0.99,
+        "lam": null,
+        "num_step_returns": 11,
+        "entropy_coef_spec": {
+          "name": "no_decay",
+          "start_val": 0.01,
+          "end_val": 0.01,
+          "start_step": 0,
+          "end_step": 0
+        },
+        "val_loss_coef": 0.5,
+        "training_frequency": 5
+      },
+      "memory": {
+        "name": "OnPolicyBatchReplay"
+      },
+      "net": {
+        "type": "ConvNet",
+        "shared": true,
+        "conv_hid_layers": [
+          [
+            32,
+            8,
+            4,
+            0,
+            1
+          ],
+          [
+            64,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            32,
+            3,
+            1,
+            0,
+            1
+          ]
+        ],
+        "fc_hid_layers": [
+          512
+        ],
+        "hid_layers_activation": "relu",
+        "init_fn": "orthogonal_",
+        "normalize": true,
+        "batch_norm": false,
+        "clip_grad_val": 0.5,
+        "use_same_optim": false,
+        "loss_spec": {
+          "name": "MSELoss"
+        },
+        "actor_optim_spec": {
+          "name": "RMSprop",
+          "lr": 0.0007,
+          "alpha": 0.99,
+          "eps": 1e-05
+        },
+        "critic_optim_spec": {
+          "name": "RMSprop",
+          "lr": 0.0007,
+          "alpha": 0.99,
+          "eps": 1e-05
+        },
+        "lr_scheduler_spec": null,
+        "gpu": true,
+        "cuda_id": null
+      }
+    }
+  ],
+  "env": [
+    {
+      "name": "PongNoFrameskip-v4",
+      "frame_op": "concat",
+      "frame_op_len": 4,
+      "reward_scale": "sign",
+      "num_envs": 16,
+      "max_t": null,
+      "max_frame": 10000000
+    }
+  ],
+  "body": {
+    "product": "outer",
+    "num": 1
+  },
+  "meta": {
+    "distributed": false,
+    "log_frequency": 10000,
+    "eval_frequency": 10000,
+    "max_session": 4,
+    "max_trial": 1,
+    "rigorous_eval": 0,
+    "experiment": 0,
+    "trial": 0,
+    "session": 0,
+    "cuda_offset": 0,
+    "resume": false,
+    "experiment_ts": "2024_04_08_024444",
+    "prepath": "data/a2c_nstep_pong_2024_04_08_024444/a2c_nstep_pong_t0_s0",
+    "git_sha": "333d5ede9d1bc23d1707dfb146b6a43f80b0b7b6",
+    "random_seed": 1712511910,
+    "graph_prepath": "data/a2c_nstep_pong_2024_04_08_024444/graph/a2c_nstep_pong_t0_s0",
+    "info_prepath": "data/a2c_nstep_pong_2024_04_08_024444/info/a2c_nstep_pong_t0_s0",
+    "log_prepath": "data/a2c_nstep_pong_2024_04_08_024444/log/a2c_nstep_pong_t0_s0",
+    "model_prepath": "data/a2c_nstep_pong_2024_04_08_024444/model/a2c_nstep_pong_t0_s0"
+  },
+  "name": "a2c_nstep_pong"
+}

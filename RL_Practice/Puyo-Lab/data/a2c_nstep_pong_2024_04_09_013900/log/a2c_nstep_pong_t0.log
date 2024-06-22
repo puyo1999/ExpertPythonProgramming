@@ -1,0 +1,2 @@
+[2024-04-09 01:39:00,671 PID:17304 INFO logger.py info] Running sessions
+[2024-04-09 01:39:30,663 PID:17304 ERROR analysis.py calc_trial_metrics] @@@ py81.kim @@@ session_metrics_list:[]
