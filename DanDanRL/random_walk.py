@@ -87,7 +87,7 @@ def temporal_difference(value, n, alpha):
 def figure7_2():
     # all possible steps
     steps = np.power(2, np.arange(0, 10))
-
+    # array([1, 2, 4, 8, 16, 32, 64, 128, 256, 512])
     # all possible alphas
     alphas = np.arange(0, 1.1, 0.1)
 
@@ -95,7 +95,7 @@ def figure7_2():
     episodes = 10
 
     # perform 100 independent runs
-    runs = 1
+    runs = 5
 
     # track the errors for each (step, alpha) combination
     errors = np.zeros((len(steps), len(alphas)))

@@ -14,5 +14,5 @@ import yaml
 import logging
 logger = logging.getLogger(__name__)
 
-with open('./config/config.yaml') as f:
+with open('./spec/spec.yaml') as f:
     config = yaml.safe_load(f)
